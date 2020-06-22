@@ -1,4 +1,4 @@
-package com.formacionbdi.microservicios.app.models.repository;
+package com.formacionbdi.microservicios.app.examenes.models.repository;
 
 import org.springframework.data.repository.CrudRepository;
 

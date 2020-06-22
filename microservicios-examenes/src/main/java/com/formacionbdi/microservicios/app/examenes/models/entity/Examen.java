@@ -27,6 +27,16 @@ public class Examen {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	private String nombre;
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_at")
 	private Date createAt;
