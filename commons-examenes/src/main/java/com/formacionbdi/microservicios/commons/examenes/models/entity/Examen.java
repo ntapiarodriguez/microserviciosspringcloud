@@ -1,4 +1,4 @@
-package com.formacionbdi.microservicios.app.examenes.models.entity;
+package com.formacionbdi.microservicios.commons.examenes.models.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
