@@ -88,4 +88,20 @@ public class Examen {
 		this.preguntas.remove(pregunta);
 		pregunta.setExamen(null);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof Examen)) {
+			return false;
+		}
+		
+		Examen a = (Examen) obj;
+		
+		return this.id != null && this.id.equals(a.getId());
+	}
+	
 }
