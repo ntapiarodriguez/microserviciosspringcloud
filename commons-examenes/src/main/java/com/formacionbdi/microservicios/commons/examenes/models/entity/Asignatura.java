@@ -32,6 +32,10 @@ public class Asignatura {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "padre", cascade = CascadeType.ALL)
 	private List<Asignatura> hijos;
 	
+	public Asignatura() {
+		this.hijos = new ArrayList<>();
+	}
+	
 	public Long getId() {
 		return id;
 	}
