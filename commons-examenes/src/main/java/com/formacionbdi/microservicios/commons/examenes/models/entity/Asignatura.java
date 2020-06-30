@@ -1,5 +1,6 @@
 package com.formacionbdi.microservicios.commons.examenes.models.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
