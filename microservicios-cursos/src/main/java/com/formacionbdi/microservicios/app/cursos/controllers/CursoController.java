@@ -75,7 +75,7 @@ public class CursoController extends CommonController<Curso, CursoService> {
 		Curso curso = service.findCursoByAlumnoId(id);
 		return ResponseEntity.ok(curso);
 	}
-	
+	 
 	@PutMapping("/{id}/asignar-examenes")
 	public ResponseEntity<?> asignarExamenes(@RequestBody List<Examen> examenes, @PathVariable Long id) {
 		Optional<Curso> opt = this.service.findById(id);
