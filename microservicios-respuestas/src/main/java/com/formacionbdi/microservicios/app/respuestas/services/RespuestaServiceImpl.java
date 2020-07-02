@@ -20,4 +20,10 @@ public class RespuestaServiceImpl implements RespuestaService {
 		return repository.saveAll(respuestas);
 	}
 
+	@Override
+	@Transactional
+	public Iterable<Respuesta> findRespuestaByAlumnoByExamen(Long alumnoId, Long examenId) {
+		return repository.findRespuestaByAlumnoByExamen(alumnoId, examenId);
+	}
+
 }
