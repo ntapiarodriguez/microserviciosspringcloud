@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.formacionbdi.microservicios.app.cursos.models.entity.Curso;
+import com.formacionbdi.microservicios.app.cursos.models.entity.CursoAlumno;
 import com.formacionbdi.microservicios.app.cursos.services.CursoService;
 import com.formacionbdi.microservicios.commons.alumnos.models.entity.Alumno;
 import com.formacionbdi.microservicios.commons.controllers.CommonController;
@@ -64,7 +65,10 @@ public class CursoController extends CommonController<Curso, CursoService> {
 		Curso dbCurso = opt.get();
 		
 		alumnos.forEach(a -> {
-			dbCurso.addAlumno(a);
+			CursoAlumno cursoAlumno = new CursoAlumno();
+			cursoAlumno.setAlumnoId(a.getId());
+			cursoAlumno.setCurso(dbCurso);
+			dbCurso.addCursoAlumnos(cursoAlumno);
 		});
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(this.service.save(dbCurso));
@@ -78,8 +82,9 @@ public class CursoController extends CommonController<Curso, CursoService> {
 			return ResponseEntity.notFound().build();
 		}
 		Curso dbCurso = opt.get();
-		
-		dbCurso.removeAlumno(alumno);
+		CursoAlumno cursoAlumno = new CursoAlumno();
+		cursoAlumno.setAlumnoId(alumno.getId());
+		dbCurso.removeCursoAlumnos(cursoAlumno);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(this.service.save(dbCurso));
 		
